@@ -1,0 +1,134 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge') 
+  link(href='https://fonts.googleapis.com/css?family=Alata&display=swap', rel='stylesheet')
+  script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
+  link(rel='stylesheet', href='/stylesheets/patient.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  title Document
+body
+    .navbar-horizontal.bg-dark
+        .header
+            .navbar-horizosntal
+                h1.text-white 
+                    | #{user.name}
+                ul
+                    //- li
+                    //-     a(href='/profile')
+                    //-         i.fa.fa-user
+                    //-         span    Profile
+                    li
+                        a(href='/patient')
+                            i.fa.fa-book
+                            span    Appointment
+                    li
+                        a(href='#')
+                            i.fa.fa-group
+                            span    Doctors
+                    li
+                        a(href='#')
+                            i.fa.fa-tag
+                            span    Practices
+                    li.pos-f-t
+                        a(href='#', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+                            i.fa.fa-cogs
+                            span  Setting
+                        #navbarToggleExternalContent.collapse
+                            .bg-dark-
+                                ul.sub-
+                                    li
+                                        a.dropdown-item(href='#') 
+                                            i.fa.fa-bell
+                                            span    Notification
+                                    li
+                                        a.dropdown-item(href='#') 
+                                            i.fa.fa-camera   
+                                            span  Change Photo
+                                    li
+                                        a.dropdown-item(href='#') 
+                                            i.fa.fa-edit   
+                                            span    Edit Profile
+                                    li
+                                        a.dropdown-item(href='#') 
+                                            i.fa.fa-user-plus  
+                                            span    Invite Friends / Patients
+                                    li
+                                        a.dropdown-item(href='#') 
+                                            i.fa.fa-user-secret   
+                                            span  Privacy / Policy
+                    li
+                        a(href='/logout')
+                            i.fa.fa-sign-out
+                            span    Logout
+block content
+    
+    // Modal
+    
+    #editAppointment.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+                .modal-header
+                    h5#exampleModalLongTitle.modal-title Book Appointment
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    form(action='/users/appointment', method='POST')
+                        .form-group
+                            label(for='inputState') Practice
+                            select#inputState.form-control(name='practice')
+                                option(selected='') Choose...
+                                option(value='Male') Male
+                                option(value='Female') female
+                                option(value='Uni') uni
+                                option(value='MaleFemale') malefemale
+                                option(value='FemaleMale') femalemale
+                                option(value='Male') UniMale
+                                option(value='Female') UniFemale
+                                option(value='Male') MaleUni
+                                option(value='Female') FemaleUni
+                        .form-group
+                            label(for='inputAddress') Time of Appointment
+                            select#inputState.form-control(name='time')
+                                option(selected='') Choose...
+                                option(value='12:00 PM') 12:00 PM
+                                option(value='12:30 PM') 12:30 PM
+                                option(value='02:00 PM') 02:00 PM
+                                option(value='02:30 PM') 02:30 PM
+                                option(value='03:00 PM') 03:00 PM
+                                option(value='03:30 PM') 03:30 PM
+                                option(value='04:00 PM') 04:00 PM
+                                option(value='04:30 PM') 04:30 PM
+                                option(value='05:00 PM') 05:00 PM
+                        .form-group
+                            label(for='inputAddress2') Doctor to Meet
+                            select#inputState.form-control(name='doctor')
+                                option(selected='') Choose...
+                                option(value='S') S
+                                option(value='F') F
+                                option(value='D') D
+                                option(value='E') E
+                                option(value='R') R
+                                option(value='Q') Q
+                                option(value='H') H
+                                option(value='G') G
+                                option(value='Y') Y
+                        .form-group
+                                label(for='inputCity') Briefly explain reason for meeting
+                                textarea.form-control(type='text' rows="5" name='desc')
+                        button.btn.btn-primary(type='submit') Submit
+
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                    //- button.btn.btn-primary(type='button') Save changes
+                    
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+    script(src='/javascripts/delete.js')
+

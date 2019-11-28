@@ -1,0 +1,75 @@
+
+body {
+    font-family: 'Alata', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.move {
+    margin-left: 250px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.appointment {
+    margin: auto 10px 20px 250px;
+}
+
+.tinyMove{
+    margin-left: 15px;
+}
+
+.bg-dark-2 {
+    background-image: linear-gradient(rgba(52, 58, 64, .9), rgba(52,58,64,.9));
+}
+
+.navbar-horizontal {
+    scroll-behavior: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(52, 58, 64, .9), rgba(52,58,64,.9)) ,
+                        url(/images/about.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 20rem;
+}
+
+.navbar-horizontal a:link,
+.navbar-horizontal a:visited {
+    font-family: 'Alata', sans-serif;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+    padding: 15px 20px;
+    color: #fff;
+    background-size: 100%;
+    /* transition: all 2s; */
+}
+
+.dropdown-item {
+    padding-left: 50px !important;
+}
+
+.navbar-horizontal a:hover,
+.navbar-horizontal a:active {
+    background-image: linear-gradient(120deg, rgba(52, 58, 64, .5) 50%, rgba(52, 58, 64, .5));
+    background-size: 100%;
+    
+}
+
+
+.navbar-horizontal h1 {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Alata', sans-serif;
+
+}
+

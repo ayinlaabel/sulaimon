@@ -1,0 +1,54 @@
+body {
+  font-family: 'Alata', sans-serif;
+}
+
+.banner {
+  font-family: 'Alata', sans-serif;
+  background-image: linear-gradient(120deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)) ,
+                       url('/images/bg_1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  /* width: 100%; */
+
+}
+
+.carousel-inner {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-item > p {
+  font-size: 18px;
+  color: #ffa600;
+  margin: auto 100px;
+  text-align: center;
+}
+
+i {
+  font-family: 'Alata', sans-serif;
+}
+
+.slide {
+  /* position: relative; */
+  height: 70vh;
+}
+
+.h1 {
+  font-size: 64px;
+  font-weight: 900;
+  text-align: center;
+  color: #fff;;
+}
+
+.btns {
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-right: 20px;
+  width: 200px;
+  padding: 20px;
+}

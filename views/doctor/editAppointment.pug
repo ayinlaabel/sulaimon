@@ -1,0 +1,117 @@
+extend dashboard
+
+block content
+    
+    .appointment.margin-top
+        form
+            .form-group
+                label(for='inputState') Practice
+                select#inputState.form-control(name='practice', disabled)
+                    option(value= appointment.practice) #{ appointment.practice } 
+                    option(value='Male') Male
+                    option(value='Female') female
+                    option(value='Uni') uni
+                    option(value='MaleFemale') malefemale
+                    option(value='FemaleMale') femalemale
+                    option(value='Male') UniMale
+                    option(value='Female') UniFemale
+                    option(value='Male') MaleUni
+                    option(value='Female') FemaleUni
+            .form-group
+                label(for='inputAddress') Time of Appointment
+                select#inputState.form-control(name='time', disabled)
+                    option(value= appointment.time) #{ appointment.time }
+                    option(value='12:00 PM') 12:00 PM
+                    option(value='12:30 PM') 12:30 PM
+                    option(value='02:00 PM') 02:00 PM
+                    option(value='02:30 PM') 02:30 PM
+                    option(value='03:00 PM') 03:00 PM
+                    option(value='03:30 PM') 03:30 PM
+                    option(value='04:00 PM') 04:00 PM
+                    option(value='04:30 PM') 04:30 PM
+                    option(value='05:00 PM') 05:00 PM
+            .form-group
+                label(for='inputAddress2') Doctor to Meet
+                select#inputState.form-control(name='doctor', disabled)
+                    option(value= appointment.doctor) #{ appointment.doctor } 
+                    option(value='S') S
+                    option(value='F') F
+                    option(value='D') D
+                    option(value='E') E
+                    option(value='R') R
+                    option(value='Q') Q
+                    option(value='H') H
+                    option(value='G') G
+                    option(value='Y') Y
+            .form-group
+                    label(for='inputCity') Briefly explain reason for meeting
+                    textarea.form-control(type='text' rows="5" name='desc' disabled) #{ appointment.desc }
+            .form-group
+                    label(for='inputCity') Doctor Prescription
+                    textarea.form-control(type='text' rows="5" name='comment', disabled) #{ appointment.comment }
+        button.btn.btn-primary(type='submit', data-toggle='modal', data-target='#doctorEditAppointment') Edit
+        button.btn.btn-danger.delete-appointment(type='submit', data-id=appointment.id) Delete
+
+    
+    #doctorEditAppointment.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+                .modal-header
+                    h5#exampleModalLongTitle.modal-title Book Appointment
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    form(action='/doctor/appointment/'+ appointment.id, method='POST')
+                        .form-group
+                            label(for='inputState') Practice
+                            select#inputState.form-control(name='practice')
+                                option(value= appointment.practice) #{ appointment.practice}
+                                option(value='Male') Male
+                                option(value='Female') female
+                                option(value='Uni') uni
+                                option(value='MaleFemale') malefemale
+                                option(value='FemaleMale') femalemale
+                                option(value='Male') UniMale
+                                option(value='Female') UniFemale
+                                option(value='Male') MaleUni
+                                option(value='Female') FemaleUni
+                        .form-group
+                            label(for='inputAddress') Time of Appointment
+                            select#inputState.form-control(name='time')
+                                option(value= appointment.time) #{ appointment.time}
+                                option(value='12:00 PM') 12:00 PM
+                                option(value='12:30 PM') 12:30 PM
+                                option(value='02:00 PM') 02:00 PM
+                                option(value='02:30 PM') 02:30 PM
+                                option(value='03:00 PM') 03:00 PM
+                                option(value='03:30 PM') 03:30 PM
+                                option(value='04:00 PM') 04:00 PM
+                                option(value='04:30 PM') 04:30 PM
+                                option(value='05:00 PM') 05:00 PM
+                        .form-group
+                            label(for='inputAddress2') Doctor to Meet
+                            select#inputState.form-control(name='doctor')
+                                option(value= appointment.doctor) #{ appointment.doctor }
+                                option(value='S') S
+                                option(value='F') F
+                                option(value='D') D
+                                option(value='E') E
+                                option(value='R') R
+                                option(value='Q') Q
+                                option(value='H') H
+                                option(value='G') G
+                                option(value='Y') Y
+                        .form-group
+                                label(for='inputCity') Briefly explain reason for meeting
+                                textarea.form-control(type='text' rows="5" name='desc' value= appointment.desc)
+                                    | #{appointment.desc}
+                        .form-group
+                                label(for='inputCity') Doctor Prescription
+                                textarea.form-control(type='text' rows="5" name='comment' value= appointment.comment)
+                                    | #{appointment.comment}
+                        button.btn.btn-primary(type='submit') Submit
+
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                    //- button.btn.btn-primary(type='button') Save changes
+    //- script(src='/javascripts/delete.js' )

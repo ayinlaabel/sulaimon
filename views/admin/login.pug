@@ -1,0 +1,40 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  link(rel='stylesheet', href='/stylesheets/message.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  title Document
+.body
+  != messages('message', locals)
+  .body_content
+    .card.text-center
+      .card-header
+        h3 Login to Dashboard
+      .card-body
+        form(action='/doctor/login', method='POST')
+          .input-group.flex-nowrap.form-group
+            .input-group-prepend
+              span#addon-wrapping.input-group-text
+                i.fa.fa-user
+            input.form-control(type='text', placeholder='Username' name='username')
+          .input-group.flex-nowrap.form-group
+            .input-group-prepend
+              span#addon-wrapping.input-group-text
+                i.fa.fa-unlock-alt
+            input.form-control(type='password', name='password', placeholder='Password')
+          .form-group.form-check.text-left
+            input#exampleCheck1.form-check-input(type='checkbox')
+            label.form-check-label(for='exampleCheck1') Remember me
+          button.btn.btn-primary.form-control Login
+      .card-footer.text-muted
+        .social
+          a(href='/admin/login')
+            span 
+              | Go Home
+          br
+          a(href='/admin/register')
+            | Don&apos;t have an Account?

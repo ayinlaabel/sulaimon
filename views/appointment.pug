@@ -1,0 +1,96 @@
+extend patientDashboard
+
+block content
+    // Button trigger modal
+    .check
+        .move
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='#makeAppointment')
+                | New Appointment  
+                i.fa.fa-plus
+            
+            
+        .appointment
+            table.table
+                thead.thead-dark
+                    tr
+                    //- th(scope='col') #
+                    th(scope='col') Name
+                    th(scope='col') Practice
+                    th(scope='col') Doctor
+                    th(scope='col') Time
+                    th(scope='col') Action
+                tbody
+                    each appointment in appointments
+                        if user.id === appointment.name
+                            tr
+                                //- ol.tinyMove
+                                    th(scope='row')
+                                            li
+                                td #{name} 
+                                td #{appointment.practice} 
+                                td #{appointment.doctor} 
+                                td #{appointment.time} 
+                                td  
+                                    a.btn.btn-primary(href='/patient/appointment/'+ appointment.id)
+                                        | View Details
+                    
+
+        
+
+        #makeAppointment.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+            .modal-dialog.modal-dialog-centered(role='document')
+                .modal-content
+                    .modal-header
+                        h5#exampleModalLongTitle.modal-title Book Appointment
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    .modal-body
+                        form(action='/users/appointment', method='POST')
+                            .form-group
+                                label(for='inputState') Practice
+                                select#inputState.form-control(name='practice')
+                                    option(selected='' value='') Choose...
+                                    option(value='Male') Male
+                                    option(value='Female') female
+                                    option(value='Uni') uni
+                                    option(value='MaleFemale') malefemale
+                                    option(value='FemaleMale') femalemale
+                                    option(value='Male') UniMale
+                                    option(value='Female') UniFemale
+                                    option(value='Male') MaleUni
+                                    option(value='Female') FemaleUni
+                            .form-group
+                                label(for='inputAddress') Time of Appointment
+                                select#inputState.form-control(name='time')
+                                    option(selected='') Choose...
+                                    option(value='12:00 PM') 12:00 PM
+                                    option(value='12:30 PM') 12:30 PM
+                                    option(value='02:00 PM') 02:00 PM
+                                    option(value='02:30 PM') 02:30 PM
+                                    option(value='03:00 PM') 03:00 PM
+                                    option(value='03:30 PM') 03:30 PM
+                                    option(value='04:00 PM') 04:00 PM
+                                    option(value='04:30 PM') 04:30 PM
+                                    option(value='05:00 PM') 05:00 PM
+                            .form-group
+                                label(for='inputAddress2') Doctor to Meet
+                                select#inputState.form-control(name='doctor')
+                                    option(selected='') Choose...
+                                    option(value='S') S
+                                    option(value='F') F
+                                    option(value='D') D
+                                    option(value='E') E
+                                    option(value='R') R
+                                    option(value='Q') Q
+                                    option(value='H') H
+                                    option(value='G') G
+                                    option(value='Y') Y
+                            .form-group
+                                    label(for='inputCity') Briefly explain reason for meeting
+                                    textarea.form-control(type='text' rows="5" name='desc')
+                            button.btn.btn-primary(type='submit') Submit
+
+                    .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                        //- button.btn.btn-primary(type='button') Save changes
+

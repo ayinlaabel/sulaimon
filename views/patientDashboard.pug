@@ -51,15 +51,15 @@ body
                                             i.fa.fa-camera   
                                             span  Change Photo
                                     li
-                                        a.dropdown-item(href='#') 
+                                        a.dropdown-item(href='/patient/edit_profile/'+user._id, data-toggle='modal', data-target='#editProfile') 
                                             i.fa.fa-edit   
                                             span    Edit Profile
                                     li
-                                        a.dropdown-item(href='#') 
+                                        a.dropdown-item(href='#', data-toggle='modal', data-target='#inviteSomeone') 
                                             i.fa.fa-user-plus  
                                             span    Invite Friends / Patients
                                     li
-                                        a.dropdown-item(href='#') 
+                                        a.dropdown-item(href='#',  data-toggle='modal', data-target='#privacyPolicy') 
                                             i.fa.fa-user-secret   
                                             span  Privacy / Policy
                     li
@@ -70,7 +70,7 @@ block content
     
     // Modal
     
-    #editAppointment.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+    #editProfile.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
         .modal-dialog.modal-dialog-centered(role='document')
             .modal-content
                 .modal-header

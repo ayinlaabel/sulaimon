@@ -11,6 +11,15 @@ const passport = require('passport');
 //==========================================Patient Entry Routes=============================================
 //===========================================================================================================
 
+exports.editProfile = (req, res, next) => {
+    User.findOne(req.params.id === user._id, (err, user) =>{
+        user.update(
+            name
+        )
+    })
+
+}
+
 exports.register = (req, res, next) => {
 
     bcrypt.hash(req.body.password, 10)

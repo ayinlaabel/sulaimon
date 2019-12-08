@@ -20,6 +20,9 @@ router.get('/profile', ensureAuthenticated, entryCtrl.profile)
 router.get('/register', entryCtrl.register);
 router.get('/logout', entryCtrl.logout);
 
+//Appointment Routes
+router.post('/patient/:id', ensureAuthenticated, userCtrl.editProfile);
+
 
 //Router Authenticated
 function ensureAuthenticated(req, res, next){

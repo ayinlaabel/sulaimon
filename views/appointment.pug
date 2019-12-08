@@ -102,33 +102,33 @@ block content
                         button.close(type='button', data-dismiss='modal', aria-label='Close')
                         span(aria-hidden='true') &times;
                     .modal-body
-                        form(action='/users/appointment', method='POST')
+                        form(action='/patient/'+user._id, method='POST')
                             .form-group
                                 .flex-nowrap.form-group
                                     label User ID
-                                    input.form-control(type='text', name='fullName', placeholder='Fullname' value= user._id disabled)
+                                    input.form-control(type='text', name='name', placeholder='Fullname' value= user._id disabled)
                             .form-group
                                 .flex-nowrap.form-group
                                     label Username
-                                    input.form-control(type='text', name='fullName', placeholder='Fullname' value= user.username disabled)
+                                    input.form-control(type='text', name='username', placeholder='Fullname' value= user.username disabled)
                             .form-group
                                 .flex-nowrap.form-group
                                     .input-group-prepend
                                         span#addon-wrapping.input-group-text
                                             i.fa.fa-user
-                                        input.form-control(type='text', name='fullName', placeholder='Fullname' value= user.name)
+                                        input.form-control(type='text', name='name', placeholder='Fullname' value= user.name)
                             .form-group
                                 .flex-nowrap.form-group
                                     .input-group-prepend
                                         span#addon-wrapping.input-group-text
                                             i.fa.fa-envelope
-                                        input.form-control(type='text', name='fullName', placeholder='Fullname' value= user.email)
+                                        input.form-control(type='text', name='email', placeholder='Fullname' value= user.email)
                             .form-group
                                 .flex-nowrap.form-group
                                     .input-group-prepend
                                         span#addon-wrapping.input-group-text
                                             i.fa.fa-calendar
-                                        input.form-control(type='date', name='fullName', placeholder='Fullname' value= user.dob)
+                                        input.form-control(type='date', name='dob', placeholder='Fullname' value= user.dob)
                             button.btn.btn-primary(type='submit') Submit
 
                     .modal-footer

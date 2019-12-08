@@ -12,11 +12,28 @@ const passport = require('passport');
 //===========================================================================================================
 
 exports.editProfile = (req, res, next) => {
-    User.findOne(req.params.id === user._id, (err, user) =>{
-        user.update(
-            name
-        )
-    })
+   const user = {};
+
+   user.name = req.body.name;
+   user.email = req.body.email;
+   //username = req.email;
+
+   let query = {_id:req.params.id}
+
+    User.update(query, user)
+        .then(
+            () => {
+                res.redirect('/patient');
+                req.flash('');
+            }
+        ).catch(
+            (error) => {
+                console.log(error)
+                res.status(404).json({
+                    error: error
+                });
+            }
+        );
 
 }
 

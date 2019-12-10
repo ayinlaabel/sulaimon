@@ -1,31 +1,38 @@
 extend dashboard
 
 block content
-    // Button trigger modal
-    //- .move
-        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#makeAppointment')
-            | New Appointment  
-            i.fa.fa-plus
-    .appointment
-        table.table
-            thead.thead-dark
-                tr
-                //- th(scope='col') #
-                th(scope='col') Name
-                th(scope='col') Practice
-                th(scope='col') Doctor
-                th(scope='col') Time
-                th(scope='col') Action
-            tbody
-                each appointment in appointments
-                    tr
-                        //- ol.tinyMove
-                            th(scope='row')
-                                    li
-                        td #{appointment.name} 
-                        td #{appointment.practice} 
-                        td #{appointment.doctor} 
-                        td #{appointment.time} 
-                        td  
-                            a.btn.btn-primary(href='/doctor/appointment/'+ appointment.id)
-                                | View Details
+
+    if user
+        if user.dashboard === 'Doctor'
+
+            // Button trigger modal
+            //- .move
+                button.btn.btn-primary(type='button', data-toggle='modal', data-target='#makeAppointment')
+                    | New Appointment  
+                    i.fa.fa-plus
+            .appointment
+                table.table
+                    thead.thead-dark
+                        tr
+                        //- th(scope='col') #
+                        th(scope='col') Name
+                        th(scope='col') Practice
+                        th(scope='col') Doctor
+                        th(scope='col') Time
+                        th(scope='col') Action
+                    tbody
+                        each appointment in appointments
+                            tr
+                                //- ol.tinyMove
+                                    th(scope='row')
+                                            li
+                                td #{appointment.name} 
+                                td #{appointment.practice} 
+                                td #{appointment.doctor} 
+                                td #{appointment.time} 
+                                td  
+                                    a.btn.btn-primary(href='/doctor/appointment/'+ appointment.id)
+                                        | View Details
+        else
+            h1.check.move  
+                | YOU HAVE LOGIN USING THE WRONG LINK PLEASE LOGOUT AND LOGIN WITH #{user.dashboard} DASHBOARD

@@ -16,6 +16,7 @@ exports.editProfile = (req, res, next) => {
 
    user.name = req.body.name;
    user.email = req.body.email;
+   user.dob = req.body.dob;
    //username = req.email;
 
    let query = {_id:req.params.id}

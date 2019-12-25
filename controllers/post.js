@@ -35,6 +35,20 @@ exports.editProfile = (req, res, next) => {
                 });
             }
         );
+    Patient.update(query, user)
+    .then(
+        () => {
+            res.redirect('/patient');
+            req.flash('');
+        }
+    ).catch(
+        (error) => {
+            console.log(error)
+            res.status(404).json({
+                error: error
+            });
+        }
+    );
 
 }
 
@@ -63,15 +77,11 @@ exports.register = (req, res, next) => {
             user.save()
                 .then(
                     () => {
-                        res.status(201).json({
-                            message:'User Added successfully!'
-                        });
+                        res.redirect('/login')
                     }
                 ).catch(
                     (error) => {
-                        res.status(500).json({
-                            error:error
-                        });
+                        res.redirect('/register')
                     }
                 )
             patient.save()
@@ -175,6 +185,49 @@ exports.delete =  (req, res, next) =>{
 //===========================================================================================================
 //==========================================Doctor  Post  Routes=============================================
 //===========================================================================================================
+
+exports.doctorEditProfile = (req, res, next) => {
+    const user = {};
+ 
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.dob = req.body.dob;
+    //username = req.email;
+ 
+    let query = {_id:req.params.id}
+ 
+     User.update(query, user)
+         .then(
+             () => {
+                 res.redirect('/patient');
+                 req.flash('');
+             }
+         ).catch(
+             (error) => {
+                 console.log(error)
+                 res.status(404).json({
+                     error: error
+                 });
+             }
+         );
+    
+         Doctor.update(query, user)
+         .then(
+             () => {
+                 res.redirect('/patient');
+                 req.flash('');
+             }
+         ).catch(
+             (error) => {
+                 console.log(error)
+                 res.status(404).json({
+                     error: error
+                 });
+             }
+         );
+ 
+ }
+ 
 
 exports.doctorRegister = (req, res, next) => {
 

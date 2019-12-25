@@ -27,7 +27,7 @@ exports.home = (req, res, next) => {
 exports.patient = (req, res, next) => {
     Appointment.find({}).then(
         (appointments) =>{
-            res.render('appointment', {
+            res.render('./patient/appointment', {
                 appointments: appointments
             });
         }
@@ -39,22 +39,22 @@ exports.patient = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
-    res.render('login');
+    res.render('./patient/login');
 }
 
 exports.profile = (req, res, next) => {
-    res.render('profile')
+    res.render('./patient/profile')
 }
 
 exports.register = (req, res, next) => {
-    res.render('register');
+    res.render('./patient/register');
 }
 
 exports.editAppointment = (req, res, next) => {
    Appointment.findById(req.params.id)
     .then(
        (appointment) =>{
-        res.render('editAppointment', {
+        res.render('./patient/editAppointment', {
             appointment: appointment
         })
        }
@@ -69,7 +69,7 @@ exports.editAppointment = (req, res, next) => {
 exports.logout = (req, res) => {
     req.logout();
     req.flash('success', 'Logout Successful');
-    res.redirect('/');
+    res.redirect('/login');
 };
 
 

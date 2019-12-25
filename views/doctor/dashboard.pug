@@ -19,53 +19,60 @@ body
                 h1.text-white 
                     | Dr. #{user.name}
                 ul
-                    //- li
-                    //-     a(href='/profile')
-                    //-         i.fa.fa-user
-                    //-         span    Profile
-                    li
-                        a(href='/doctor/dashboard')
-                            i.fa.fa-book
-                            span    Appointment
-                    li
-                        a(href='/doctor/patients')
-                            i.fa.fa-group
-                            span    Patient
-                    li
-                        a(href='#')
-                            i.fa.fa-tag
-                            span    View Calendar
-                    li.pos-f-t
-                        a(href='#', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
-                            i.fa.fa-cogs
-                            span  Setting
-                        #navbarToggleExternalContent.collapse
-                            .bg-dark-
-                                ul.sub-
-                                    li
-                                        a.dropdown-item(href='#') 
-                                            i.fa.fa-bell
-                                            span    Notification
-                                    li
-                                        a.dropdown-item(href='#') 
-                                            i.fa.fa-camera   
-                                            span  Change Photo
-                                    li
-                                        a.dropdown-item(href='#') 
-                                            i.fa.fa-edit   
-                                            span    Edit Profile
-                                    li
-                                        a.dropdown-item(href='#') 
-                                            i.fa.fa-user-plus  
-                                            span    Invite Friends / Patients
-                                    li
-                                        a.dropdown-item(href='#') 
-                                            i.fa.fa-user-secret   
-                                            span  Privacy / Policy
-                    li
-                        a(href='/doctor/logout')
-                            i.fa.fa-sign-out
-                            span    Logout
+                    if user
+                        if user.dashboard === 'Doctor'
+                            //- li
+                            //-     a(href='/profile')
+                            //-         i.fa.fa-user
+                            //-         span    Profile
+                            li
+                                a(href='/doctor/dashboard')
+                                    i.fa.fa-book
+                                    span    Appointment
+                            li
+                                a(href='/doctor/patients')
+                                    i.fa.fa-group
+                                    span    Patient
+                            li
+                                a(href='#')
+                                    i.fa.fa-tag
+                                    span    View Calendar
+                            li.pos-f-t
+                                a(href='#', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+                                    i.fa.fa-cogs
+                                    span  Setting
+                                #navbarToggleExternalContent.collapse
+                                    .bg-dark-
+                                        ul.sub-
+                                            li
+                                                a.dropdown-item(href='#') 
+                                                    i.fa.fa-bell
+                                                    span    Notification
+                                            li
+                                                a.dropdown-item(href='#') 
+                                                    i.fa.fa-camera   
+                                                    span  Change Photo
+                                            li
+                                                a.dropdown-item(href='#') 
+                                                    i.fa.fa-edit   
+                                                    span    Edit Profile
+                                            li
+                                                a.dropdown-item(href='#') 
+                                                    i.fa.fa-user-plus  
+                                                    span    Invite Friends / Patients
+                                            li
+                                                a.dropdown-item(href='#') 
+                                                    i.fa.fa-user-secret   
+                                                    span  Privacy / Policy
+                            li
+                                a(href='/doctor/logout')
+                                    i.fa.fa-sign-out
+                                    span    Logout
+                        else
+                            li
+                                a(href='/logout')
+                                    i.fa.fa-sign-out
+                                    span    Logout
 block content
     
     // Modal

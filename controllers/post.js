@@ -87,9 +87,7 @@ exports.register = (req, res, next) => {
             patient.save()
                 .then(
                     () => {
-                        res.status(201).json({
-                            message:'User Added successfully!'
-                        });
+                        res.redirect('/login')
                     }
                 ).catch(
                     (error) => {
@@ -253,9 +251,8 @@ exports.doctorRegister = (req, res, next) => {
             doctor.save()
                 .then(
                     () => {
-                        res.status(201).json({
-                            message:'Doctor Added successfully!'
-                        });
+                        res.redirect('/doctor/login');
+                        req.flash('success', 'Doctor Added Successfully!')
                     }
                 ).catch(
                     (error) => {
@@ -267,9 +264,8 @@ exports.doctorRegister = (req, res, next) => {
             user.save()
             .then(
                 () => {
-                    res.status(201).json({
-                        message:'Doctor Added successfully!'
-                    });
+                    res.redirect('/doctor/login');
+                    req.flash('success', 'Doctor Added Successfully!')
                 }
             ).catch(
                 (error) => {
@@ -341,9 +337,8 @@ exports.adminRegister = (req, res, next) => {
             admin.save()
                 .then(
                     () => {
-                        res.status(201).json({
-                            message:'Admin Added successfully!'
-                        });
+                        res.redirect('/admin/login')
+                        req.flash('success', 'Admin Added Successfully!')
                     }
                 ).catch(
                     (error) => {
@@ -355,9 +350,8 @@ exports.adminRegister = (req, res, next) => {
             user.save()
             .then(
                 () => {
-                    res.status(201).json({
-                        message:'Admin Added successfully!'
-                    });
+                    res.redirect('/admin/login')
+                    req.flash('success', 'Admin Added Successfully!')
                 }
             ).catch(
                 (error) => {

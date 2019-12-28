@@ -234,14 +234,14 @@ exports.doctorRegister = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
     .then(
         (hash) => {
-            // const user = new User({
-            //     name:req.body.fullName,                
-            //     dashboard:req.body.dashboard,
-            //     email: req.body.email,
-            //     username: req.body.email,
-            //     dob: req.body.dob,
-            //     password: hash
-            // });
+            const user = new User({
+                name:req.body.fullName,                
+                dashboard:req.body.dashboard,
+                email: req.body.email,
+                username: req.body.email,
+                dob: req.body.dob,
+                password: hash
+            });
             const doctor = new Doctor({
                 name:req.body.fullName,                
                 dashboard:req.body.dashboard,
@@ -264,20 +264,20 @@ exports.doctorRegister = (req, res, next) => {
                         });
                     }
                 )
-            // user.save()
-            // .then(
-            //     () => {
-            //         res.status(201).json({
-            //             message:'Doctor Added successfully!'
-            //         });
-            //     }
-            // ).catch(
-            //     (error) => {
-            //         res.status(500).json({
-            //             error:error
-            //         });
-            //     }
-            // )
+            user.save()
+            .then(
+                () => {
+                    res.status(201).json({
+                        message:'Doctor Added successfully!'
+                    });
+                }
+            ).catch(
+                (error) => {
+                    res.status(500).json({
+                        error:error
+                    });
+                }
+            )
         }
     )
 

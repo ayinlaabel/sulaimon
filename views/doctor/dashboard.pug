@@ -20,7 +20,7 @@ body
                     | Dr. #{user.name}
                 ul
                     if user
-                        if user.dashboard === 'Doctor'
+                        if user.dashboard === 'doctor'
                             //- li
                             //-     a(href='/profile')
                             //-         i.fa.fa-user
@@ -49,19 +49,19 @@ body
                                                     i.fa.fa-bell
                                                     span    Notification
                                             li
-                                                a.dropdown-item(href='#') 
+                                                a.dropdown-item(href='/patient/edit_profile/'+user._id, data-toggle='modal', data-target='#editProfile') 
                                                     i.fa.fa-camera   
                                                     span  Change Photo
                                             li
-                                                a.dropdown-item(href='#') 
+                                                a.dropdown-item(href='/patient/edit_profile/'+user._id, data-toggle='modal', data-target='#editProfile')  
                                                     i.fa.fa-edit   
                                                     span    Edit Profile
                                             li
-                                                a.dropdown-item(href='#') 
+                                                a.dropdown-item(href='/patient/edit_profile/'+user._id, data-toggle='modal', data-target='#inviteSomeone')
                                                     i.fa.fa-user-plus  
                                                     span    Invite Friends / Patients
                                             li
-                                                a.dropdown-item(href='#') 
+                                                a.dropdown-item(href='/patient/edit_profile/'+user._id, data-toggle='modal', data-target='#privacyPolicy') 
                                                     i.fa.fa-user-secret   
                                                     span  Privacy / Policy
                             li

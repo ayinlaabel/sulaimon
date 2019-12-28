@@ -3,7 +3,7 @@ extend dashboard
 block content
 
     if user
-        if user.dashboard === 'Doctor'
+        if user.dashboard === 'doctor'
 
             // Button trigger modal
             //- .move
@@ -11,6 +11,7 @@ block content
                     | New Appointment  
                     i.fa.fa-plus
             .appointment
+                br
                 table.table
                     thead.thead-dark
                         tr
@@ -33,6 +34,83 @@ block content
                                 td  
                                     a.btn.btn-primary(href='/doctor/appointment/'+ appointment.id)
                                         | View Details
+            #editProfile.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+                    .modal-dialog.modal-dialog-centered(role='document')
+                        .modal-content
+                            .modal-header
+                                h5#exampleModalLongTitle.modal-title Edit Profile
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                span(aria-hidden='true') &times;
+                            .modal-body
+                                form(action='/patient/'+user._id, method='POST')
+                                    .form-group
+                                        .flex-nowrap.form-group
+                                            label User ID
+                                            input.form-control(type='text', name='name', placeholder='Fullname' value= user._id disabled)
+                                    .form-group
+                                        .flex-nowrap.form-group
+                                            label Username
+                                            input.form-control(type='text', name='username', placeholder='Fullname' value= user.username disabled)
+                                    .form-group
+                                        .flex-nowrap.form-group
+                                            .input-group-prepend
+                                                span#addon-wrapping.input-group-text
+                                                    i.fa.fa-user
+                                                input.form-control(type='text', name='name', placeholder='Fullname' value= user.name)
+                                    .form-group
+                                        .flex-nowrap.form-group
+                                            .input-group-prepend
+                                                span#addon-wrapping.input-group-text
+                                                    i.fa.fa-envelope
+                                                input.form-control(type='text', name='email', placeholder='Fullname' value= user.email)
+                                    .form-group
+                                        .flex-nowrap.form-group
+                                            .input-group-prepend
+                                                span#addon-wrapping.input-group-text
+                                                    i.fa.fa-calendar
+                                                input.form-control(type='date', name='dob', placeholder='Fullname' value= user.dob)
+                                    button.btn.btn-primary(type='submit') Submit
+
+                            .modal-footer
+                                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                                //- button.btn.btn-primary(type='button') Save changes
+
+            #inviteSomeone.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+                .modal-dialog.modal-dialog-centered(role='document')
+                    .modal-content
+                        .modal-header
+                            h5#exampleModalLongTitle.modal-title Invite A Friend / Patient
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        .modal-body
+                            form(action='/users/appointment', method='POST')
+                                .form-group
+                                    .flex-nowrap.form-group
+                                        label User ID
+                                        input.form-control(type='text', name='', placeholder='Email (example@example.com) / Telephone(+233 345 345 3443)')
+                                
+                                button.btn.btn-primary(type='submit') Submit
+
+                        .modal-footer
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                            //- button.btn.btn-primary(type='button') Save changes
+                
+            #privacyPolicy.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+                .modal-dialog.modal-dialog-centered(role='document')
+                    .modal-content
+                        .modal-header
+                            h5#exampleModalLongTitle.modal-title Invite A Friend / Patient
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        .modal-body.justify
+                            p   
+                                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eveniet dolore vel omnis magni placeat accusantium pariatur quaerat aspernatur. Iusto officia at obcaecati doloremque animi quisquam rerum deleniti minima sed quidem enim unde minus, sit quae quo omnis, odio nam cupiditate alias nisi pariatur illum ipsum soluta. Deserunt quasi sapiente eius magni quis asperiores minus vitae atque adipisci doloribus blanditiis iste officiis necessitatibus, omnis earum provident praesentium perferendis tempora dicta est. Voluptatem doloribus ut fugiat voluptas deserunt ea culpa nostrum inventore facere, quia aut totam animi quasi aliquam quidem placeat, eum, asperiores vero obcaecati omnis. Quidem eligendi enim quo delectus repellat a, natus nisi voluptatum? Dolore commodi consectetur sapiente minus, debitis possimus a nisi deserunt ad tempore eius voluptas sint sit exercitationem tempora reprehenderit vel quam architecto nam velit culpa et repellendus. Explicabo cumque quo tenetur laudantium velit aut fugiat, eius laborum ipsa. Exercitationem tenetur nam velit rerum magni animi maxime, in quibusdam blanditiis nihil quas eligendi atque, id dolorum! Ipsam saepe non qui beatae velit! Laboriosam eos omnis vitae magnam voluptas rem harum provident exercitationem dignissimos quasi ab eaque culpa nihil est ullam illo quis, id eum voluptates eius distinctio libero commodi a laudantium? Fugit officia mollitia officiis tempore!
+
+                            p 
+                                | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe iusto debitis ex enim exercitationem, repudiandae nihil consequatur aliquid doloremque consectetur, commodi culpa eaque nam molestiae doloribus excepturi porro assumenda perferendis iure quod ipsam optio voluptatem quibusdam tenetur. Dolores, autem velit sed optio corrupti placeat aliquid fugiat. Alias voluptate, unde quae quia corporis magnam numquam quos ducimus molestiae asperiores quisquam possimus commodi sint reprehenderit maxime placeat quidem ullam ex ratione est. Nihil pariatur tenetur ullam vel beatae sint provident veniam reiciendis, cupiditate nulla perferendis mollitia, dolorem deserunt laborum illum quasi numquam debitis eum voluptatum non quae nemo soluta? Tempora, inventore possimus! Magnam, provident doloribus delectus illum iste aperiam expedita, officia accusantium accusamus cumque pariatur molestias dolorum quia in ex molestiae quasi ad sequi quae. Ducimus laudantium nesciunt quos doloremque ipsa reiciendis magnam, culpa veritatis iste quasi dolorem blanditiis adipisci modi odit aliquid. Quia, quos fuga? Odio at dolores assumenda quidem, harum ipsum tempora ipsam laudantium nisi earum, eos, sed voluptas accusamus iusto natus nemo quod corrupti qui alias accusantium rerum soluta. Esse incidunt nesciunt dignissimos, tenetur perspiciatis qui. Eveniet excepturi hic nulla accusamus sed adipisci, explicabo, voluptates ducimus consectetur error eius facilis ab ea tempore cumque. Nesciunt asperiores nisi accusamus inventore?
+
+                        .modal-footer
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
         else
             h1.check.move  
                 | YOU HAVE LOGIN USING THE WRONG LINK PLEASE LOGOUT AND LOGIN WITH #{user.dashboard} DASHBOARD

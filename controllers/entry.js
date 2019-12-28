@@ -179,7 +179,7 @@ exports.adminRegister = (req, res, next) => {
 exports.adminDashboard = (req, res, next) => {
     Appointment.find({}).then(
         (appointments) =>{
-            res.render('./admin/appointments', {
+            res.render('./admin/dashboard', {
                 appointments: appointments
             });
         }

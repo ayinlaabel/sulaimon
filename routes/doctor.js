@@ -17,6 +17,9 @@ router.get('/dashboard', ensureAuthenticated, entryCtrl.dashboard);
 router.get('/appointment/:id', ensureAuthenticated, entryCtrl.doctorEditAppointment);
 router.post('/appointment/:id', ensureAuthenticated, userCtrl.doctorEditAppointment);
 
+//Edit Patient Profile Routes
+router.post('/:id', ensureAuthenticated, userCtrl.doctorEditProfile);
+
 
 //Router Authenticated
 function ensureAuthenticated(req, res, next){

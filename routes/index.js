@@ -20,7 +20,7 @@ router.get('/profile', ensureAuthenticated, entryCtrl.profile)
 router.get('/register', entryCtrl.register);
 router.get('/logout', entryCtrl.logout);
 
-//Appointment Routes
+//Edit Patient Profile Routes
 router.post('/patient/:id', ensureAuthenticated, userCtrl.editProfile);
 
 

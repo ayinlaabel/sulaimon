@@ -197,7 +197,7 @@ exports.doctorEditProfile = (req, res, next) => {
      User.update(query, user)
          .then(
              () => {
-                 res.redirect('/patient');
+                 res.redirect('/doctor/dashboard');
                  req.flash('');
              }
          ).catch(
@@ -212,7 +212,7 @@ exports.doctorEditProfile = (req, res, next) => {
          Doctor.update(query, user)
          .then(
              () => {
-                 res.redirect('/patient');
+                 res.redirect('/doctor/dashboard');
                  req.flash('');
              }
          ).catch(

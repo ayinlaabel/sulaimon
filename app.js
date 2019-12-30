@@ -8,7 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator')
 const passport = require('passport');
-const config = require('./config/database')
+const config = require('./config/database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

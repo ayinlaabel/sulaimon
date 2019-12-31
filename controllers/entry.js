@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 //Models
 const Appointment = require('../models/appointment');
 const User = require('../models/user');
+const Doctor = require('../models/doctor')
 const Patient = require('../models/patient');
 
 
@@ -26,10 +27,19 @@ exports.home = (req, res, next) => {
 
 exports.patient = (req, res, next) => {
     Appointment.find({}).then(
-        (appointments) =>{
-            res.render('./patient/appointment', {
-                appointments: appointments
-            });
+        (appointments) => {
+            Doctor.find({}).then(
+                (doctors) =>{
+                    Doctor.findById(appointments.doctor, (err, user) =>{
+                        res.render('./patient/appointment', {
+                            appointments: appointments,
+                            doctors: doctors,
+                    })
+    
+                    })
+                }
+                
+            )
         }
     ).catch(
         (error) => {

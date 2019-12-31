@@ -17,9 +17,9 @@ block content
                         thead.thead-dark
                             tr
                             //- th(scope='col') #
-                            th(scope='col') Name
+                            th(scope='col') Doctor Name
                             th(scope='col') Practice
-                            th(scope='col') Doctor
+                            th(scope='col') Telephone
                             th(scope='col') Time
                             th(scope='col') Action
                         tbody
@@ -29,9 +29,9 @@ block content
                                         //- ol.tinyMove
                                             th(scope='row')
                                                     li
-                                        td #{name} 
-                                        td #{appointment.practice} 
                                         td #{appointment.doctor} 
+                                        td #{appointment.practice} 
+                                        td #{appointment.tel} 
                                         td #{appointment.time} 
                                         td  
                                             a.btn.btn-primary(href='/patient/appointment/'+ appointment.id)
@@ -49,6 +49,14 @@ block content
                                 span(aria-hidden='true') &times;
                             .modal-body
                                 form(action='/users/appointment', method='POST')
+                                    .form-group
+                                        label(for='inputState') Doctor
+                                        select#inputState.form-control(name='doctor')
+                                            option(selected='' value='') Choose...
+                                            each doctor in doctors
+                                                option(value= doctor.name) #{doctor.name}
+                                                
+                                               
                                     .form-group
                                         label(for='inputState') Practice
                                         select#inputState.form-control(name='practice')
@@ -75,19 +83,6 @@ block content
                                             option(value='04:00 PM') 04:00 PM
                                             option(value='04:30 PM') 04:30 PM
                                             option(value='05:00 PM') 05:00 PM
-                                    .form-group
-                                        label(for='inputAddress2') Doctor to Meet
-                                        select#inputState.form-control(name='doctor')
-                                            option(selected='') Choose...
-                                            option(value='S') S
-                                            option(value='F') F
-                                            option(value='D') D
-                                            option(value='E') E
-                                            option(value='R') R
-                                            option(value='Q') Q
-                                            option(value='H') H
-                                            option(value='G') G
-                                            option(value='Y') Y
                                     .form-group
                                             label(for='inputCity') Briefly explain reason for meeting
                                             textarea.form-control(type='text' rows="5" name='desc')

@@ -22,6 +22,10 @@ const appointSchema = mongoose.Schema({
         type:String,
         required: true,
     },
+    tel:{
+        type:String,
+        required: true,
+    },
     comment:{
         type:String,
         // required: true,

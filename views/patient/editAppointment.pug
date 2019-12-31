@@ -92,23 +92,15 @@ block content
                         .form-group
                             label(for='inputAddress2') Doctor to Meet
                             select#inputState.form-control(name='doctor')
-                                option(value= appointment.doctor) #{ appointment.doctor }
-                                option(value='S') S
-                                option(value='F') F
-                                option(value='D') D
-                                option(value='E') E
-                                option(value='R') R
-                                option(value='Q') Q
-                                option(value='H') H
-                                option(value='G') G
-                                option(value='Y') Y
+                                option(selected value= appointment.doctor disabled) #{ appointment.doctor }
+                                
                         .form-group
                                 label(for='inputCity') Briefly explain reason for meeting
                                 textarea.form-control(type='text' rows="5" name='desc' value= appointment.desc)
                                     | #{appointment.desc}
-                        .form-group
-                            label(for='inputCity') Doctor Prescription
-                            textarea.form-control(type='text' rows="5" name='comment' disabled) #{ appointment.comment }
+                        //- .form-group
+                        //-     label(for='inputCity') Doctor Prescription
+                        //-     textarea.form-control(type='text' rows="5" name='comment' disabled) #{ appointment.comment }
                         button.btn.btn-primary(type='submit') Submit
 
                 .modal-footer

@@ -26,10 +26,12 @@ head
       .carousel-item
         h1.h Welcome to Dr. Health
         p.pl
-          | Book your appointments, order online prescriptions and view your medical records at your convenience.
+          | Book your appointments, order online prescriptions and 
+          br
+          | view your medical records at your convenience.
   .buttons.text-center
     if !user
-      a.btn.btn-primary.btns(href='/patient') Patient
+      a.btn.btn-primary.btns(href='/login') Patient
       a.btn.btn-primary.btns(href='/doctor') Doctor
       a.btn.btn-primary.btns(href='/admin/login') Administration
     else

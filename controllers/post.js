@@ -13,13 +13,20 @@ const passport = require('passport');
 
 exports.editProfile = (req, res, next) => {
    const user = {};
+   const patient = {};
 
    user.name = req.body.name;
    user.email = req.body.email;
    user.dob = req.body.dob;
    //username = req.email;
 
+   patient.name = req.body.name;
+   patient.email = req.body.email;
+   patient.dob = req.body.dob;
+   //username = req.email;
+
    let query = {_id:req.params.id}
+   
 
     User.update(query, user)
         .then(
@@ -35,7 +42,7 @@ exports.editProfile = (req, res, next) => {
                 });
             }
         );
-    Patient.update(query, user)
+    Patient.update(query, patient)
     .then(
         () => {
             res.redirect('/patient');
@@ -63,6 +70,10 @@ exports.register = (req, res, next) => {
                 email: req.body.email,
                 username: req.body.email,
                 dob: req.body.dob,
+                gender: req.body.gender,
+                tel: req.body.tel,
+                address: req.body.address,
+                identification: req.body.identification,
                 password: hash
             });
 
@@ -72,6 +83,10 @@ exports.register = (req, res, next) => {
                 email: req.body.email,
                 username: req.body.email,
                 dob: req.body.dob,
+                gender: req.body.gender,
+                tel: req.body.tel,
+                address: req.body.address,
+                identification: req.body.identification,
                 password: hash
             });
             user.save()
@@ -116,6 +131,7 @@ exports.appointment = (req, res, next) => {
 
     appointment.time = req.body.time;
     appointment.desc = req.body.desc;
+    appointment.tel = req.user.tel;
     appointment.practice = req.body.practice;
     appointment.doctor = req.body.doctor;
     appointment.name = req.user._id;
@@ -238,6 +254,10 @@ exports.doctorRegister = (req, res, next) => {
                 email: req.body.email,
                 username: req.body.email,
                 dob: req.body.dob,
+                gender: req.body.gender,
+                tel: req.body.tel,
+                address: req.body.address,
+                identification: req.body.identification,
                 password: hash
             });
             const doctor = new Doctor({
@@ -246,6 +266,10 @@ exports.doctorRegister = (req, res, next) => {
                 email: req.body.email,
                 username: req.body.email,
                 dob: req.body.dob,
+                gender: req.body.gender,
+                tel: req.body.tel,
+                address: req.body.address,
+                identification: req.body.identification,
                 password: hash
             });
             doctor.save()

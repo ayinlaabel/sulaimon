@@ -35,13 +35,37 @@ body
                         .input-group-prepend
                             span#addon-wrapping.input-group-text
                                 i.fa.fa-unlock-alt
+                            input.form-control(type='tel', name='tel', placeholder='2348012345678', maxlength="13" , required)
+                    .flex-nowrap.form-group
+                        .input-group-prepend
+                            span#addon-wrapping.input-group-text
+                                i.fa.fa-unlock-alt
+                            select.form-control(name='gender')
+                                            option(selected='') Choose...
+                                            option(value='Male') Male
+                                            option(value='Female') Female
+                                            option(value='Other') Other
+                    .flex-nowrap.form-group
+                        .input-group-prepend
+                            span#addon-wrapping.input-group-text
+                                i.fa.fa-unlock-alt
+                            textarea.form-control(type='text', name='address', placeholder='Block 234, Ratyahhnod Street' required)
+                    .flex-nowrap.form-group
+                        .input-group-prepend
+                            span#addon-wrapping.input-group-text
+                                i.fa.fa-unlock-alt
+                            input.form-control(type='file', name='identification', title='upload a Means of Identification' required)
+                    .flex-nowrap.form-group
+                        .input-group-prepend
+                            span#addon-wrapping.input-group-text
+                                i.fa.fa-unlock-alt
                             input.form-control(type='password', name='password', placeholder='Password' required)
                     .flex-nowrap.form-group
                         .input-group-prepend
                             span#addon-wrapping.input-group-text
                                 i.fa.fa-unlock-alt
                             input.form-control(type='password', placeholder='Confirm Password', name='password2' required)
-                    button.btn.btn-primary.form-control Login
+                    button.btn.btn-primary.form-control Register
             .card-footer.text-muted
                 .social
                 a(href='/doctor')

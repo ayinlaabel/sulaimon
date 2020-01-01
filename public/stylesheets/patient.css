@@ -8,6 +8,10 @@ body {
     padding: 0;
 }
 
+.check{
+    margin: auto 10px auto 35px;
+}
+
 .move {
     margin-left: 250px;
     margin-top: 50px;

@@ -11,29 +11,30 @@ block content
                     | New Appointment  
                     i.fa.fa-plus
             .appointment
-                br
-                table.table
-                    thead.thead-dark
-                        tr
-                        //- th(scope='col') #
-                        th(scope='col') Name
-                        th(scope='col') Practice
-                        th(scope='col') Doctor
-                        th(scope='col') Time
-                        th(scope='col') Action
-                    tbody
-                        each appointment in appointments
+                .check
+                    br
+                    table.table
+                        thead.thead-dark
                             tr
-                                //- ol.tinyMove
-                                    th(scope='row')
-                                            li
-                                td #{appointment.name} 
-                                td #{appointment.practice} 
-                                td #{appointment.doctor} 
-                                td #{appointment.time} 
-                                td  
-                                    a.btn.btn-primary(href='/doctor/appointment/'+ appointment.id)
-                                        | View Details
+                            //- th(scope='col') #
+                            th(scope='col') Name
+                            th(scope='col') Practice
+                            th(scope='col') Doctor
+                            th(scope='col') Time
+                            th(scope='col') Action
+                        tbody
+                            each appointment in appointments
+                                tr
+                                    //- ol.tinyMove
+                                        th(scope='row')
+                                                li
+                                    td #{appointment.name} 
+                                    td #{appointment.practice} 
+                                    td #{appointment.doctor} 
+                                    td #{appointment.time} 
+                                    td  
+                                        a.btn.btn-primary(href='/doctor/appointment/'+ appointment.id)
+                                            | View Details
             #editProfile.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
                     .modal-dialog.modal-dialog-centered(role='document')
                         .modal-content
